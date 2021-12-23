@@ -6,8 +6,8 @@ import CustomerDto from "../models/customer.dto";
 import LoginDto from "../models/loginDto";
 
 
-@Route("categories")
-@Tags("Category")
+@Route("customers")
+@Tags("Customer")
 @Service()
 class CustomerController {
     constructor(private readonly customerService: CustomerService) { }
@@ -29,11 +29,8 @@ class CustomerController {
     @Post("/login")
     async login(_req: Request, res: Response) {
         const loginDto: LoginDto = _req.body;
-        await this.customerService.login(loginDto).then((response) => {
-            return res.json(response);
-        }).catch((error) => {
-            return res.json(error);
-        });
+        const result = await this.customerService.login(loginDto);
+        return  res.json(result);
     }
 
 }
