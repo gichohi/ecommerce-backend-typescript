@@ -16,10 +16,10 @@ class ProductRepository {
         return db.one(`select * from product where product_id = ${productId}`);
     }
 
-    async getProductsByCategory(categoyId: number, limit: number): Promise<Product[]> {
+    async getProductsByCategory(categoryId: number, limit: number): Promise<Product[]> {
         return db.any(`select * from product inner join product_category
         on product_category.product_id = product.product_id 
-        and product_category.category_id = ${categoyId} limit ${limit}`);
+        and product_category.category_id = ${categoryId} limit ${limit}`);
     }
 
 
@@ -31,3 +31,5 @@ class ProductRepository {
     }
 
 }
+
+export default ProductRepository;

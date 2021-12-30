@@ -16,7 +16,7 @@ class CustomerService {
     private readonly authService: AuthService
   ) {}
 
-  async getCustomerById(customerId: number): Promise<Customer> {
+  async getCustomerById(customerId: number): Promise<CustomerResponse> {
     return this.customerRepository.getCustomerById(customerId);
   }
 
