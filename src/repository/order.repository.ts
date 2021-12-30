@@ -24,10 +24,10 @@ class OrderRepository {
     return order_id;
   }
 
-  async getOrderById(order_id: number): Promise<Order> {
+  async getOrderById(orderId: number): Promise<Order> {
     const order = await db.one(
       "select * from orders where order_id = $1",
-      order_id
+      orderId
     );
     return order;
   }

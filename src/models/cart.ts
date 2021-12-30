@@ -1,5 +1,5 @@
 interface Cart {
-    item_id: number;
+    item_id?: number;
     cart_id: string;
     product_id: number;
     attributes: AttributeValue[];

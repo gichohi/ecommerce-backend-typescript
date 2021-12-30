@@ -5,25 +5,25 @@ import CategoryRepository from "../repository/category.repository";
 
 @Service()
 class CategoryService {
-    constructor(
-        private readonly categoryRepository: CategoryRepository,
-    ) {}
+  constructor(private readonly categoryRepository: CategoryRepository) {}
 
-    async getCategories(): Promise<Category[]> {
-        return this.categoryRepository.getCategories();
-    }
+  async getCategories(): Promise<Category[]> {
+    return this.categoryRepository.getCategories();
+  }
 
-    async getCategoryById(id: number): Promise<Category> {
-       return await this.categoryRepository.getCategoryById(id);
-    }
+  async getCategoryById(id: number): Promise<Category> {
+    return await this.categoryRepository.getCategoryById(id);
+  }
 
-    async getProductCategory(productId: number): Promise<Category> {
-        return await this.categoryRepository.getProductCategory(productId);
-    }
+  async getProductCategory(productId: number): Promise<Category> {
+    return await this.categoryRepository.getProductCategory(productId);
+  }
 
-    async getCategoriesByDepartment(departmentId: number): Promise<Category[]> {
-        return await this.categoryRepository.getCategoriesByDepartment(departmentId);
-    }
+  async getCategoriesByDepartment(departmentId: number): Promise<Category[]> {
+    return await this.categoryRepository.getCategoriesByDepartment(
+      departmentId
+    );
+  }
 }
 
 export default CategoryService;
